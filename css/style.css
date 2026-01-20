@@ -413,3 +413,69 @@ section { padding: 80px 0; }
     background: #e0f2fe;
     border-color: #3b82f6;
 }
+
+/* --- Features Section Styles --- */
+#features {
+    background-color: #fff; /* พื้นหลังสีขาว */
+    padding: 100px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* แบ่งคอลัมน์อัตโนมัติ (ปกติ 3) */
+    gap: 30px;
+    text-align: left;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* เงาบางๆ ให้ดูลอยขึ้น */
+    border: 1px solid #f1f5f9;
+    display: flex;
+    align-items: flex-start; /* จัดไอคอนกับข้อความให้เริ่มที่บรรทัดบนสุด */
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.f-icon {
+    flex-shrink: 0; /* ไม่ให้ไอคอนโดนบีบจนเล็กลง */
+    width: 50px;
+    height: 50px;
+    background-color: #e0f2fe; /* พื้นหลังไอคอนสีฟ้าอ่อน */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-icon i {
+    font-size: 1.2rem;
+    color: #0ea5e9; /* สีไอคอน */
+}
+
+.f-text h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-text);
+    margin-bottom: 8px;
+}
+
+.f-text p {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* ปรับแต่งสำหรับมือถือเล็กๆ */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr; /* เรียงเป็นแนวตั้งแถวเดียว */
+    }
+}
