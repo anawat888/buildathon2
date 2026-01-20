@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Skills Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mobile-view" id="mainContainer">
+        <!-- Welcome Screen -->
+        <div class="screen active" id="welcomeScreen">
+            <div class="logo-container">
+                <div class="logo">S</div>
+                <div class="tagline">
+                    <strong>Thrive</strong> in the freelance<br>world the right way!
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="showScreen('registerScreen')">Sign up</button>
+                <button class="btn btn-secondary" onclick="showScreen('loginScreen')">Login</button>
+                <div class="forgot-password" onclick="alert('Password reset functionality coming soon!')">Forgot Password?</div>
+            </div>
+        </div>
+
+        <!-- Registration Screen (Empty) -->
+        <div class="screen" id="registerScreen">
+            <h1 class="form-header">Create an account</h1>
+            
+            <div class="input-group">
+                <label class="input-label">First Name</label>
+                <input type="text" id="firstName" placeholder="">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Last Name</label>
+                <input type="text" id="lastName" placeholder="Last Name">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">University Email Address</label>
+                <input type="email" id="email" placeholder="Enter your CMU email">
+            </div>
+
+            <div class="form-spacer"></div>
+
+            <div class="button-row">
+                <button class="btn btn-secondary" onclick="showScreen('welcomeScreen')">Cancel</button>
+                <button class="btn btn-primary" id="registerNext" disabled onclick="showScreen('registerPasswordScreen')">Next</button>
+            </div>
+        </div>
+
+        <!-- Registration Screen (Filled) -->
+        <div class="screen" id="registerFilledScreen">
+            <h1 class="form-header">Create an account</h1>
+            
+            <div class="input-group">
+                <label class="input-label">First Name</label>
+                <input type="text" value="Jack">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Last Name</label>
+                <input type="text" value="Cruz">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">University Email Address</label>
+                <input type="email" value="jackcruz_jc@cmu.ac.th">
+            </div>
+
+            <div class="form-spacer"></div>
+
+            <div class="button-row">
+                <button class="btn btn-secondary" onclick="showScreen('welcomeScreen')">Cancel</button>
+                <button class="btn btn-primary" onclick="showScreen('registerPasswordScreen')">Next</button>
+            </div>
+        </div>
+
+        <!-- Password Creation Screen -->
+        <div class="screen" id="registerPasswordScreen">
+            <h1 class="form-header">Create an account</h1>
+            
+            <div class="input-group">
+                <label class="input-label">Username</label>
+                <input type="text" id="username" placeholder="Enter username">
+                <p class="input-hint">*Use 5-8 characters at least</p>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Create password</label>
+                <div class="password-input-wrapper">
+                    <input type="password" id="password" placeholder="Enter password">
+                    <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </button>
+                </div>
+                <p class="input-hint">*Use 8-16 characters at least</p>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Confirm password</label>
+                <div class="password-input-wrapper">
+                    <input type="password" id="confirmPassword" placeholder="Confirm password">
+                    <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-spacer"></div>
+
+            <div class="button-row">
+                <button class="btn btn-secondary" onclick="showScreen('registerFilledScreen')">Back</button>
+                <button class="btn btn-primary" onclick="showScreen('verificationScreen')">Next</button>
+            </div>
+        </div>
+
+        <!-- Verification Success Screen -->
+        <div class="screen verification-screen" id="verificationScreen">
+            <div class="verification-card">
+                <div class="verification-icon">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <path d="M20 40L35 55L60 25" stroke="#0a1e4a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2 class="verification-title">Verified!</h2>
+                <p class="verification-message">Your university email has been successfully verified.</p>
+                <button class="btn-verification" onclick="showScreen('onboardingNoScreen')">Ready</button>
+            </div>
+        </div>
+
+        <!-- Login Screen -->
+        <div class="screen" id="loginScreen">
+            <h1 class="form-header">Welcome back</h1>
+            
+            <div class="input-group">
+                <label class="input-label">Email Address</label>
+                <input type="email" placeholder="Enter your email">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Password</label>
+                <input type="password" placeholder="Enter your password">
+            </div>
+
+            <div class="form-spacer"></div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="alert('Login successful!')">Login</button>
+                <button class="btn btn-secondary" onclick="showScreen('welcomeScreen')">Back</button>
+                <div class="forgot-password" onclick="alert('Password reset functionality coming soon!')">Forgot Password?</div>
+            </div>
+        </div>
+
+        <!-- Onboarding Screen - No Skills (Simple) -->
+        <div class="screen" id="onboardingNoScreen">
+            <h1 class="onboarding-header">Here to offer skills?</h1>
+
+            <div class="question-group">
+                <label class="question-label">Are you here to offer your skills?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="offerSkillsNo" id="offerYesNo" value="yes" onchange="switchToYesFlow()">
+                        <label for="offerYesNo">
+                            <span class="radio-circle"></span>
+                            Yes
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="offerSkillsNo" id="offerNoNo" value="no" checked>
+                        <label for="offerNoNo">
+                            <span class="radio-circle"></span>
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-spacer"></div>
+
+            <div class="button-row">
+                <button class="btn btn-secondary" onclick="showScreen('verificationScreen')">Back</button>
+                <button class="btn btn-primary" onclick="showScreen('landingScreen')">Next</button>
+            </div>
+        </div>
+
+        <!-- Onboarding Screen - Yes Skills (Full Questionnaire) -->
+        <div class="screen" id="onboardingYesScreen">
+            <h1 class="onboarding-header">Here to offer skills?</h1>
+
+            <div class="question-group">
+                <label class="question-label">Are you here to offer your skills?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" name="offerSkillsYes" id="offerYesYes" value="yes" checked>
+                        <label for="offerYesYes">
+                            <span class="radio-circle"></span>
+                            Yes
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="offerSkillsYes" id="offerNoYes" value="no" onchange="switchToNoFlow()">
+                        <label for="offerNoYes">
+                            <span class="radio-circle"></span>
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="select-box">
+                <label class="select-label">How long have you been freelancing?</label>
+                <select>
+                    <option>0 - 6 months</option>
+                    <option>6 - 12 months</option>
+                    <option>1 - 2 years</option>
+                    <option>2+ years</option>
+                </select>
+            </div>
+
+            <div class="question-group">
+                <label class="question-label">Which areas of expertise do you offer?</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="writing">
+                        <label for="writing">
+                            <span class="checkbox-box"></span>
+                            Writing & Content
+                        </label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="design">
+                        <label for="design">
+                            <span class="checkbox-box"></span>
+                            Design & Multimedia
+                        </label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="marketing">
+                        <label for="marketing">
+                            <span class="checkbox-box"></span>
+                            Digital Marketing
+                        </label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="webdev">
+                        <label for="webdev">
+                            <span class="checkbox-box"></span>
+                            Web/App Design
+                        </label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="education">
+                        <label for="education">
+                            <span class="checkbox-box"></span>
+                            Education & Tutoring
+                        </label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="others">
+                        <label for="others">
+                            <span class="checkbox-box"></span>
+                            Others
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-row" style="margin-top: 40px;">
+                <button class="btn btn-secondary" onclick="switchToNoFlow()">Back</button>
+                <button class="btn btn-primary" onclick="alert('Profile complete!')">Next</button>
+            </div>
+        </div>
+
+        <!-- Landing Page / Dashboard -->
+        <div class="screen landing-screen" id="landingScreen">
+            <nav class="navbar">
+                <div class="nav-brand">
+                    <span class="nav-icon">🎯</span>
+                    <span class="nav-title">Skill Scoop</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#how">How It Works</a>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+                <button class="btn-nav-cta">Join Waitlist</button>
+            </nav>
+
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-icon">🚀</span>
+                        Student Freelancing Revolution
+                    </div>
+                    <h1 class="hero-title">
+                        Connecting The<br>
+                        Next<br>
+                        <span class="gradient-text">Generation Of<br>
+                        Skilled<br>
+                        Freelancers.</span>
+                    </h1>
+                    <p class="hero-description">
+                        AI-powered matching. Blockchain-secured payments.<br>
+                        An affordable, trust-first community that empowers<br>
+                        student talent to thrive. The future of freelancing is here.
+                    </p>
+                    <button class="btn-hero-cta">Join the Waitlist</button>
+                </div>
+
+                <div class="dashboard-preview">
+                    <div class="preview-header">
+                        <div class="preview-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="preview-title">PeerHire Dashboard</div>
+                    </div>
+                    
+                    <div class="preview-content">
+                        <div class="user-welcome">
+                            <div class="user-avatar">👤</div>
+                            <div class="user-info">
+                                <div class="user-name">Welcome back, Sarah!</div>
+                                <div class="user-role">Computer Science Student</div>
+                            </div>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">Active Gigs</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">$1,240</div>
+                                <div class="stat-label">Earnings</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-value">4.9 ★</div>
+                                <div class="stat-label">Rating</div>
+                            </div>
+                        </div>
+
+                        <div class="projects-section">
+                            <div class="section-header">
+                                <span>AI Matched Projects</span>
+                                <span class="new-badge">3 new</span>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-icon">💻</div>
+                                <div class="project-details">
+                                    <div class="project-title">Web Dev</div>
+                                    <div class="project-meta">$250 - 2 weeks</div>
+                                </div>
+                                <button class="btn-apply">Apply</button>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-icon">📱</div>
+                                <div class="project-details">
+                                    <div class="project-title">App Design</div>
+                                    <div class="project-meta">$180 - 10 days</div>
+                                </div>
+                                <button class="btn-apply">Apply</button>
+                            </div>
+
+                            <div class="more-matches">
+                                <span class="match-icon">⚡</span>
+                                3 more matches
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
