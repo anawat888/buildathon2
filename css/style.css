@@ -2,11 +2,12 @@
 
 /* --- General Reset & Variables --- */
 :root {
-    --primary-blue: #7BC9F6;
-    --primary-text: #1a2055;
-    --accent-blue: #4FA8E0;
-    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #eef8ff 100%);
-    --card-header: #211f5d;
+    --primary-color: #8b5cf6;      /* สีม่วงหลัก (Violet) */
+    --primary-text: #2e1065;       /* สีม่วงเข้มเกือบดำ (Deep Purple) */
+    --accent-color: #7c3aed;       /* สีม่วงสดสำหรับปุ่ม (Vivid Purple) */
+    --light-bg: #f3e8ff;           /* สีพื้นหลังม่วงจางๆ (Lavender) */
+    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #faf5ff 100%);
+    --card-header: #4c1d95;        /* สีหัวการ์ดม่วงเข้ม */
 }
 
 * {
@@ -153,6 +154,7 @@ header {
     margin-bottom: 20px;
     font-weight: 800;
     color: var(--primary-text);
+    display: inline-block;
 }
 
 .text-highlight {
@@ -478,4 +480,717 @@ section { padding: 80px 0; }
     .features-grid {
         grid-template-columns: 1fr; /* เรียงเป็นแนวตั้งแถวเดียว */
     }
+}
+
+/* --- Reimagined Section Styles --- */
+.reimagined-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: 100px; /* เว้นระยะห่างจาก Grid ด้านบน */
+}
+
+/* Left Side: Image with Floating Badge */
+.reimagined-image {
+    flex: 1;
+    position: relative;
+}
+
+.reimagined-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: 30px;
+    right: -30px; /* ให้ป้ายลอยออกมาทางขวานิดหน่อย */
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.badge-icon {
+    width: 45px;
+    height: 45px;
+    background: #e0f2fe;
+    color: #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.floating-badge h4 { font-size: 1.1rem; color: var(--primary-text); margin: 0; }
+.floating-badge span { font-size: 0.8rem; color: #64748b; }
+
+/* Right Side: Content */
+.reimagined-content {
+    flex: 1;
+    text-align: left;
+}
+
+.pill-badge {
+    background: #dbeafe;
+    color: #2563eb;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.reimagined-content h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--primary-text);
+}
+
+.reimagined-content p {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Small 2x2 Grid */
+.user-types-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.type-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.2s;
+}
+
+.type-card:hover {
+    transform: translateY(-3px);
+    border-color: #cbd5e1;
+}
+
+.t-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* Icon Colors */
+.i-blue { background: #e0f2fe; color: #0ea5e9; }
+.i-purple { background: #f3e8ff; color: #a855f7; }
+.i-green { background: #dcfce7; color: #22c55e; }
+.i-yellow { background: #fef9c3; color: #eab308; }
+
+.type-card h5 { font-size: 0.95rem; color: var(--primary-text); margin-bottom: 2px; }
+.type-card span { font-size: 0.75rem; color: #64748b; }
+
+.btn-wide {
+    padding: 12px 30px;
+    font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .reimagined-container {
+        flex-direction: column;
+    }
+    .floating-badge { right: 0; }
+}
+
+/* --- Testimonials Section Styles --- */
+.testimonials-container {
+    margin-top: 120px; /* เว้นระยะจากส่วนบน */
+    text-align: center;
+    position: relative;
+}
+
+.testimonials-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* บังคับเรียง 3 ใบแนวนอน */
+    gap: 30px;
+    width: 100%;
+}
+
+.review-card {
+    background: white;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: transform 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.reviewer-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.reviewer-info h5 {
+    font-size: 1rem;
+    color: var(--primary-text);
+    margin-bottom: 2px;
+    font-weight: 700;
+}
+
+.reviewer-info span {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.review-text {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    /* ตัดคำถ้ายาวเกินไปให้สวยงาม */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Navigation Arrows (ปุ่มลูกศร) */
+.nav-arrow {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.nav-arrow:hover {
+    background: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+}
+
+/* Responsive: ถ้าจอเล็กให้เรียงแนวตั้งและซ่อนปุ่มลูกศร */
+@media (max-width: 900px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+    .nav-arrow {
+        display: none; /* ซ่อนลูกศรในมือถือ */
+    }
+}
+
+/* --- Pricing Section Styles --- */
+#pricing {
+    background-color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    align-items: center; /* จัดให้การ์ดอยู่กึ่งกลางแนวตั้ง */
+}
+
+.pricing-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden; /* เพื่อตัดขอบ Badge ไม่ให้ล้น */
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* Specific Style for Popular Card */
+.pricing-card.popular {
+    border: 2px solid #2e2c76; /* ขอบสีน้ำเงินเข้ม */
+    box-shadow: 0 15px 40px rgba(46, 44, 118, 0.15);
+    transform: scale(1.05); /* ขยายใหญ่กว่าใบอื่นนิดหน่อย */
+    z-index: 2;
+}
+
+.pricing-card.popular:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #211f5d;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 15px;
+    border-bottom-left-radius: 10px;
+}
+
+.tier-icon {
+    font-size: 2rem;
+    color: #2e2c76; /* สีน้ำเงินเข้มตามธีม */
+    margin-bottom: 15px;
+    display: block;
+}
+
+.tier-header h3 {
+    font-size: 1.25rem;
+    color: var(--primary-text);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.tier-header span {
+    font-size: 0.9rem;
+    color: #64748b;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.tier-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #6ebbf1; /* สีฟ้าสว่าง */
+    margin-bottom: 30px;
+    line-height: 1;
+}
+
+.tier-price.dark-text {
+    color: #211f5d; /* สีน้ำเงินเข้มสำหรับการ์ดกลาง */
+}
+
+.tier-price small {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+/* Feature List */
+.tier-features {
+    text-align: left;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.tier-features li {
+    font-size: 0.95rem;
+    color: #475569;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tier-features li i {
+    color: #6ebbf1; /* ติ๊กถูกสีฟ้า */
+    font-size: 0.9rem;
+}
+
+.pricing-card.popular .tier-features li i {
+    color: #211f5d; /* ติ๊กถูกสีน้ำเงินเข้มในการ์ดกลาง */
+    font-weight: 900;
+}
+
+/* Buttons */
+.btn-tier {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-light {
+    background: #6ebbf1;
+    color: white;
+}
+
+.btn-light:hover {
+    background: #5aaee6;
+}
+
+.btn-dark {
+    background: #211f5d;
+    color: white;
+}
+
+.btn-dark:hover {
+    background: #322f85;
+}
+
+/* Responsive adjustment */
+@media (max-width: 900px) {
+    .pricing-card.popular {
+        transform: scale(1); /* มือถือไม่ต้องขยาย */
+    }
+    .pricing-card.popular:hover {
+        transform: translateY(-10px);
+    }
+}
+
+/* --- Partners / Institutions Section --- */
+#partners {
+    background: #f8fafc; /* พื้นหลังสีเทาอ่อนจางๆ ให้ตัดกับสีขาว */
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#partners h3 {
+    color: var(--card-header);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+#partners p {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.logos-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* ให้ตกบรรทัดได้ถ้ารูปเยอะ */
+    gap: 40px;
+    margin-bottom: 20px;
+    opacity: 0.8; /* ให้โลโก้ดูไม่เข้มเกินไป */
+}
+
+.logos-wrapper img {
+    filter: grayscale(100%); /* ทำให้โลโก้เป็นขาวดำเพื่อให้ดู clean */
+    transition: filter 0.3s;
+    object-fit: contain;
+}
+
+.logos-wrapper img:hover {
+    filter: grayscale(0%); /* เมาส์ชี้แล้วคืนสีเดิม */
+}
+
+.small-caption {
+    font-size: 0.8rem !important;
+    color: #94a3b8 !important;
+    margin-top: 10px;
+}
+
+/* --- Footer Section --- */
+footer {
+    background-color: #1e1b4b; /* สีน้ำเงินเข้มตามภาพ (Dark Indigo) */
+    color: white;
+    padding-top: 70px;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* คอลัมน์แรกกว้างกว่าเพื่อน */
+    gap: 50px;
+    padding-bottom: 50px;
+}
+
+.footer-logo {
+    color: white !important;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.footer-logo span { color: #89d4ff; } /* สีฟ้าอ่อน */
+
+.company-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #e2e8f0;
+}
+
+/* Contact List */
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+.contact-list i {
+    margin-top: 4px; /* ดันไอคอนลงนิดนึงให้ตรงกับบรรทัดแรกของข้อความ */
+    color: #89d4ff;
+}
+
+/* Footer Links */
+.footer-col h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #89d4ff;
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-icons a {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    transition: background 0.3s;
+}
+
+.social-icons a:hover {
+    background: #89d4ff;
+    color: #1e1b4b;
+}
+
+/* Product Hunt Badge Simulation */
+.product-hunt-badge {
+    background: white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.ph-logo {
+    width: 30px;
+    height: 30px;
+    background: #da552f; /* สีส้ม Product Hunt */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.ph-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ph-title {
+    color: #da552f;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+}
+
+.ph-stars {
+    color: #da552f;
+    font-size: 0.7rem;
+    margin: 2px 0;
+}
+
+.ph-reviews {
+    color: #555;
+    font-size: 0.6rem;
+}
+
+/* Copyright Bar */
+.footer-bottom {
+    background: rgba(0,0,0,0.2);
+    padding: 20px 0;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .footer-content {
+        grid-template-columns: 1fr; /* มือถือเรียงยาวลงมา */
+        gap: 40px;
+    }
+}
+
+/* =========================================
+   PURPLE THEME OVERRIDES (วางต่อท้ายไฟล์สุด)
+   ========================================= */
+
+/* 1. เปลี่ยนสีลิงก์และไอคอน */
+.nav-links a:hover, 
+.logo i,
+.icon-box i,
+.f-icon i,
+.p-icon,
+.more-matches,
+.btn-outline,
+.text-highlight,
+.tier-price,
+.tier-features li i,
+.contact-list i,
+.footer-links a:hover,
+.footer-logo span {
+    color: var(--accent-color) !important;
+}
+
+.logo span { color: #6d28d9; } /* สีโลโก้ส่วนหลัง */
+
+/* 2. เปลี่ยนพื้นหลัง (Backgrounds) จากฟ้าอ่อนเป็นม่วงอ่อน */
+.btn-cta {
+    background: linear-gradient(90deg, #a78bfa 0%, #7c3aed 100%);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.icon-box, 
+.f-icon, 
+.p-icon, 
+.user-icon, 
+.badge, 
+.more-matches, 
+.btn-outline:hover,
+.floating-badge .badge-icon,
+.pill-badge,
+.t-icon.i-blue {
+    background-color: var(--light-bg) !important;
+    color: var(--accent-color) !important;
+}
+
+/* 3. Blobs (วงกลมฟุ้งๆ ด้านหลัง) */
+.blob-1 { background: #e9d5ff; }
+.blob-2 { background: #f3e8ff; }
+
+/* 4. Dashboard & Cards */
+.dash-header, .popular-badge, .btn-dark{
+    background: var(--card-header);
+    border-color: var(--card-header);
+}
+
+.pricing-card.popular {
+    box-shadow: 0 15px 40px rgba(76, 29, 149, 0.15);
+}
+
+.tier-icon { color: var(--card-header); }
+.tier-price.dark-text { color: var(--card-header); }
+
+/* ปุ่มใน Pricing (Card ซ้าย/ขวา) */
+.btn-light {
+    background: var(--accent-color);
+    color: white;
+}
+.btn-light:hover {
+    background: #6d28d9;
+}
+
+.btn-outline {
+    border-color: #c4b5fd;
+    color: var(--accent-color);
+}
+
+/* 5. Footer (เปลี่ยนจากน้ำเงินเข้ม เป็นม่วงเข้ม) */
+footer {
+    background-color: #2e1065; /* Deep Purple */
+}
+
+.social-icons a:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* 6. แก้ไขส่วน Reimagined (Tags) */
+.pill-badge {
+    background: #ede9fe;
+    color: #6d28d9;
+}
+
+/* เพิ่มกฎนี้ต่อท้ายลงไปครับ */
+.pricing-card.popular {
+    background: #ffffff !important; /* บังคับให้พื้นหลังเป็นสีขาว */
+    border: 2px solid var(--card-header); /* ขอบสีม่วงเข้ม */
+    box-shadow: 0 15px 40px rgba(76, 29, 149, 0.15); /* เงาสีม่วง */
 }
