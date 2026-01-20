@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeerHire - Student Freelancing Revolution</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-temperature-low"></i>
+                Peer<span>Hire</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+
+            <button class="btn-cta" onclick="joinWaitlist()">Join Waitlist</button>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container hero-content">
+            
+            <div class="hero-text">
+                <div class="badge">
+                    <i class="fa-solid fa-rocket"></i> Student Freelancing Revolution
+                </div>
+                <h1>Connecting <span style="color:var(--card-header)">The Next</span><br>
+                <span class="text-highlight">Generation Of Skilled Freelancers.</span></h1>
+                <p>
+                    AI-powered matching. Blockchain-secured payments. An affordable, trust-first community that empowers student talent to thrive. The future of freelancing is here.
+                </p>
+                <button class="btn-cta" style="padding: 15px 35px; font-size: 1rem;" onclick="joinWaitlist()">Join the Waitlist</button>
+
+                <div class="social-proof">
+                    <div class="avatars">
+                        <img src="https://i.pravatar.cc/100?img=1" alt="Student">
+                        <img src="https://i.pravatar.cc/100?img=3" alt="Student">
+                        <img src="https://i.pravatar.cc/100?img=5" alt="Student">
+                    </div>
+                    <div class="proof-text">
+                        <strong>4,400+ students already joined</strong>
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="reviews">5.0 (200+ reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-mockup">
+                <div class="dash-header">
+                    <div class="win-controls">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="dash-title">PeerHire Dashboard</div>
+                    <div></div>
+                </div>
+                <div class="dash-body">
+                    <div class="user-welcome">
+                        <div class="user-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                        <div class="user-info">
+                            <h3>Welcome back, Sarah!</h3>
+                            <p>Computer Science Student</p>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <h4>5</h4>
+                            <p>Active Gigs</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>$1,240</h4>
+                            <p>Earnings</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>4.9 <i class="fa-solid fa-star" style="color:#211f5d; font-size:0.7rem;"></i></h4>
+                            <p>Rating</p>
+                        </div>
+                    </div>
+
+                    <div class="project-list-header">
+                        <span>AI Matched Projects</span>
+                        <span>3 new</span>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-info">
+                            <div class="p-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                            <div class="p-detail">
+                                <h5>Web Dev</h5>
+                                <span>$250 - 2 weeks</span>
+                            </div>
+                        </div>
+                        <button class="btn-apply">Apply</button>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-info">
+                            <div class="p-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <div class="p-detail">
+                                <h5>App Design</h5>
+                                <span>$180 - 10 days</span>
+                            </div>
+                        </div>
+                        <button class="btn-apply">Apply</button>
+                    </div>
+
+                    <div class="more-matches">
+                        <i class="fa-solid fa-bolt"></i> 3 more matches
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="how-it-works"><h2>How It Works Section</h2></section>
+    <section id="features"><h2>Features Section</h2></section>
+    <section id="pricing"><h2>Pricing Section</h2></section>
+    <section id="faqs"><h2>FAQs Section</h2></section>
+    <section id="about"><h2>About Section</h2></section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

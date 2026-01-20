@@ -1,0 +1,322 @@
+/* ไฟล์: css/style.css */
+
+/* --- General Reset & Variables --- */
+:root {
+    --primary-blue: #7BC9F6;
+    --primary-text: #1a2055;
+    --accent-blue: #4FA8E0;
+    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #eef8ff 100%);
+    --card-header: #211f5d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-text);
+    background: var(--bg-gradient);
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- Container --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Navbar --- */
+header {
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.logo span { color: #6a6a9e; }
+.logo i { color: var(--accent-blue); font-size: 28px; }
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-blue);
+}
+
+.btn-cta {
+    background-color: var(--accent-blue);
+    background: linear-gradient(90deg, #89d4ff 0%, #6abaff 100%);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(106, 186, 255, 0.3);
+}
+
+/* --- Hero Section --- */
+#home {
+    padding: 60px 0 100px;
+    display: flex;
+    align-items: center;
+    min-height: 85vh;
+    position: relative;
+}
+
+/* Background Blobs */
+.bg-blob {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(80px);
+}
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: #dbeeff;
+    top: -100px;
+    left: -100px;
+}
+.blob-2 {
+    width: 600px;
+    height: 600px;
+    background: #e3f2ff;
+    bottom: 0;
+    right: -100px;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Left Side: Text */
+.hero-text .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e0f2fe;
+    color: #0c4a6e;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 800;
+    color: var(--primary-text);
+}
+
+.text-highlight {
+    color: #6ebbf1;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 90%;
+}
+
+.social-proof {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.avatars {
+    display: flex;
+}
+.avatars img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-left: -12px;
+}
+.avatars img:first-child { margin-left: 0; }
+
+.proof-text strong {
+    display: block;
+    color: var(--primary-text);
+    font-size: 0.9rem;
+}
+.stars { color: #facc15; font-size: 0.8rem; }
+.reviews { font-size: 0.8rem; color: #777; }
+
+/* Right Side: Dashboard Mockup */
+.dashboard-mockup {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    transform: perspective(1000px) rotateY(-2deg) rotateX(2deg);
+    transition: transform 0.3s;
+}
+
+.dashboard-mockup:hover {
+    transform: perspective(1000px) rotateY(0) rotateX(0);
+}
+
+.dash-header {
+    background: var(--card-header);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.win-controls span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #5f5d8d;
+    margin-right: 5px;
+}
+.dash-title { color: white; font-size: 0.9rem; margin-right: 30px; }
+
+.dash-body { padding: 25px; }
+
+.user-welcome {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.user-icon {
+    width: 50px;
+    height: 50px;
+    background: #e0f2fe;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0ea5e9;
+    font-size: 1.2rem;
+}
+.user-info h3 { font-size: 1rem; color: var(--card-header); }
+.user-info p { font-size: 0.8rem; color: #777; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.stat-box {
+    background: #f8fafc;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+.stat-box h4 { font-size: 1rem; color: var(--card-header); }
+.stat-box p { font-size: 0.7rem; color: #777; }
+
+.project-list-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.project-info { display: flex; align-items: center; gap: 10px; }
+.p-icon {
+    width: 35px; height: 35px; background: #e0f2fe;
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    color: #0ea5e9; font-size: 0.9rem;
+}
+.p-detail h5 { font-size: 0.9rem; color: var(--card-header); }
+.p-detail span { font-size: 0.7rem; color: #777; }
+
+.btn-apply {
+    background: #6ebbf1;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.more-matches {
+    text-align: center;
+    background: #e0f2fe;
+    color: #0ea5e9;
+    padding: 8px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    width: fit-content;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+/* --- Placeholder Sections --- */
+section { padding: 80px 0; }
+#features, #pricing, #faqs, #about {
+    background: #fff;
+    border-top: 1px solid #eee;
+    text-align: center;
+    min-height: 400px;
+}
